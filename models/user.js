@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { Model, DataTypes } = require('sequelize/types');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class User extends Model {
@@ -39,9 +39,9 @@ User.init(
                 updatedUser.password = await bcrypt.hash(updatedUser.password, 10);
                 return updatedUser;
             }
-        }
-    },
-    {
+        },
+    
+    
         sequelize,
         timestamps: false,
         freezeTableName: true,

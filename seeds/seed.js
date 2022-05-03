@@ -19,6 +19,10 @@ const seedDatabase = async () => {
         });
     }
     
+    const comments = await Comment.bulkCreate(commentData, {
+        returning: true,
+      });
+    
     process.exit(0);
 };
     

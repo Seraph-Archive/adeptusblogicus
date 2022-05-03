@@ -1,7 +1,7 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
-const { BelongsTo } = require('sequelize/types');
+const { BelongsTo } = require('sequelize');
 
 User.hasMany(Post, {
     foreignKey: 'user_id',
