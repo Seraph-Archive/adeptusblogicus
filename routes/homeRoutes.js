@@ -72,6 +72,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/dashboard', withAuth, async (req, res) => {
+    console.log(req.session.user_id)
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {
@@ -79,7 +80,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
             },
             include: [{
                 model: Post
-            }]
+            }],
         });
         const user = userData.get({
             plain: true
@@ -88,7 +89,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         res.render('dashboard', {
             ...user,
             logged_in: true
-        })
+        });
     } catch (err) {
         res.status(500).json(err);
     }

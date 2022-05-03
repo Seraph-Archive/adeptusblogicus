@@ -40,8 +40,6 @@ User.init(
                 return updatedUser;
             }
         },
-    
-    
         sequelize,
         timestamps: false,
         freezeTableName: true,
